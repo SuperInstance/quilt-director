@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>JEV Oracle — 483 Sessions of the Eye</title>
+<style>
+  :root {
+    --bg: #0a0e14;
+    --panel: #131820;
+    --border: #1f2733;
+    --text: #c5cdd9;
+    --muted: #6c7a8c;
+    --accept: #4ade80;
+    --drift: #fbbf24;
+    --refuse: #f87171;
+    --accent: #818cf8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0; padding: 24px; line-height: 1.5;
+  }
+  .container { max-width: 1200px; margin: 0 auto; }
+  header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 24px;
+  }
+  h1 { margin: 0; font-size: 28px; font-weight: 500; color: var(--accent); }
+  .chain-head { font-family: monospace; font-size: 13px; color: var(--muted); }
+  .panel {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px; margin-bottom: 20px;
+  }
+  .panel h2 { margin: 0 0 16px 0; font-size: 14px; font-weight: 500;
+              color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .stat { text-align: center; }
+  .stat-value { font-size: 32px; font-weight: 600; }
+  .stat-label { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+  .bar { display: flex; align-items: center; margin: 6px 0; font-size: 13px; }
+  .bar-label { width: 130px; font-family: monospace; }
+  .bar-track { flex: 1; height: 18px; background: var(--bg); border-radius: 2px;
+                overflow: hidden; position: relative; }
+  .bar-fill { height: 100%; background: var(--accent); transition: width 0.3s; }
+  .bar-fill.accept { background: var(--accept); }
+  .bar-fill.drift { background: var(--drift); }
+  .bar-fill.refuse { background: var(--refuse); }
+  .bar-value { width: 50px; text-align: right; font-family: monospace; color: var(--muted); }
+  .graph { height: 480px; background: var(--bg); border-radius: 4px; position: relative; }
+  .graph svg { width: 100%; height: 100%; }
+  .legend { display: flex; gap: 16px; margin-top: 12px; font-size: 12px;
+            color: var(--muted); justify-content: center; }
+  .legend-dot { display: inline-block; width: 10px; height: 10px;
+                 border-radius: 50%; vertical-align: middle; margin-right: 4px; }
+  .intact { color: var(--accept); }
+  .broken { color: var(--refuse); }
+  footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border);
+            color: var(--muted); font-size: 12px; text-align: center; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>🌱 JEV Oracle — 483 Sessions of the Eye</h1>
+    <div class="chain-head">chain head: jev_0481_04...</div>
+  </header>
+
+  <div class="panel">
+    <h2>Overview</h2>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-value">40</div>
+        <div class="stat-label">receipts</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">40</div>
+        <div class="stat-label">cells</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">1</div>
+        <div class="stat-label">substrates</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value intact">intact</div>
+        <div class="stat-label">chain</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Polarity</h2>
+    <div class="bar"><div class="bar-label">ACCEPT</div><div class="bar-track"><div class="bar-fill accept" style="width: 100.0%"></div></div><div class="bar-value">16</div></div>
+<div class="bar"><div class="bar-label">REFUSE</div><div class="bar-track"><div class="bar-fill refuse" style="width: 81.2%"></div></div><div class="bar-value">13</div></div>
+<div class="bar"><div class="bar-label">DRIFT</div><div class="bar-track"><div class="bar-fill drift" style="width: 68.8%"></div></div><div class="bar-value">11</div></div>
+  </div>
+
+  <div class="panel">
+    <h2>Substrates</h2>
+    <div class="bar"><div class="bar-label">jev-oracle</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">40</div></div>
+  </div>
+
+  <div class="panel">
+    <h2>Top Cells</h2>
+    <div class="bar"><div class="bar-label">session_1/fnv1a_empty</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">session_1/fnv1a_a</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">session_1/fnv1a_foobar</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">session_1/fnv1a_prime_q</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">session_1/xoshiro_state_q</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">session_10_landmines/q0</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">session_10_landmines/q1</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">session_10_landmines/q2</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">session_10_landmines/q3</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">session_10_landmines/q4</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+  </div>
+
+  <div class="panel">
+    <h2>Witness Chain</h2>
+    <div class="graph" id="graph"></div>
+    <div class="legend">
+      <span><span class="legend-dot" style="background: var(--accept)"></span>ACCEPT</span>
+      <span><span class="legend-dot" style="background: var(--drift)"></span>DRIFT</span>
+      <span><span class="legend-dot" style="background: var(--refuse)"></span>REFUSE</span>
+    </div>
+  </div>
+
+  <footer>
+    quilt-trace v0.1.0 · the organism sees itself · 2026-09-24 08:47 UTC
+  </footer>
+</div>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+const data = {"nodes": [{"id": "jev_0000_00", "polarity": "DRIFT", "label": "session_1/fnv1a_empt (jev-oracle)"}, {"id": "jev_0000_01", "polarity": "DRIFT", "label": "session_1/fnv1a_a (jev-oracle)"}, {"id": "jev_0000_02", "polarity": "DRIFT", "label": "session_1/fnv1a_foob (jev-oracle)"}, {"id": "jev_0000_03", "polarity": "DRIFT", "label": "session_1/fnv1a_prim (jev-oracle)"}, {"id": "jev_0000_04", "polarity": "ACCEPT", "label": "session_1/xoshiro_st (jev-oracle)"}, {"id": "jev_0001_00", "polarity": "ACCEPT", "label": "session_10_landmines (jev-oracle)"}, {"id": "jev_0001_01", "polarity": "ACCEPT", "label": "session_10_landmines (jev-oracle)"}, {"id": "jev_0001_02", "polarity": "ACCEPT", "label": "session_10_landmines (jev-oracle)"}, {"id": "jev_0001_03", "polarity": "REFUSE", "label": "session_10_landmines (jev-oracle)"}, {"id": "jev_0001_04", "polarity": "REFUSE", "label": "session_10_landmines (jev-oracle)"}, {"id": "jev_0002_00", "polarity": "DRIFT", "label": "session_11_substrate (jev-oracle)"}, {"id": "jev_0002_01", "polarity": "DRIFT", "label": "session_11_substrate (jev-oracle)"}, {"id": "jev_0002_02", "polarity": "DRIFT", "label": "session_11_substrate (jev-oracle)"}, {"id": "jev_0002_03", "polarity": "REFUSE", "label": "session_11_substrate (jev-oracle)"}, {"id": "jev_0002_04", "polarity": "DRIFT", "label": "session_11_substrate (jev-oracle)"}, {"id": "jev_0068_00", "polarity": "REFUSE", "label": "session_3_deep/q0 (jev-oracle)"}, {"id": "jev_0068_01", "polarity": "REFUSE", "label": "session_3_deep/q1 (jev-oracle)"}, {"id": "jev_0068_02", "polarity": "REFUSE", "label": "session_3_deep/q2 (jev-oracle)"}, {"id": "jev_0068_03", "polarity": "REFUSE", "label": "session_3_deep/q3 (jev-oracle)"}, {"id": "jev_0068_04", "polarity": "REFUSE", "label": "session_3_deep/q4 (jev-oracle)"}, {"id": "jev_0169_00", "polarity": "ACCEPT", "label": "session_4_rich_state (jev-oracle)"}, {"id": "jev_0169_01", "polarity": "DRIFT", "label": "session_4_rich_state (jev-oracle)"}, {"id": "jev_0169_02", "polarity": "ACCEPT", "label": "session_4_rich_state (jev-oracle)"}, {"id": "jev_0169_03", "polarity": "ACCEPT", "label": "session_4_rich_state (jev-oracle)"}, {"id": "jev_0169_04", "polarity": "ACCEPT", "label": "session_4_rich_state (jev-oracle)"}, {"id": "jev_0284_00", "polarity": "DRIFT", "label": "session_5_canon_scor (jev-oracle)"}, {"id": "jev_0284_01", "polarity": "ACCEPT", "label": "session_5_canon_scor (jev-oracle)"}, {"id": "jev_0284_02", "polarity": "REFUSE", "label": "session_5_canon_scor (jev-oracle)"}, {"id": "jev_0284_03", "polarity": "REFUSE", "label": "session_5_canon_scor (jev-oracle)"}, {"id": "jev_0284_04", "polarity": "DRIFT", "label": "session_5_canon_scor (jev-oracle)"}, {"id": "jev_0382_00", "polarity": "ACCEPT", "label": "session_6_pairwise/q (jev-oracle)"}, {"id": "jev_0382_01", "polarity": "ACCEPT", "label": "session_6_pairwise/q (jev-oracle)"}, {"id": "jev_0382_02", "polarity": "ACCEPT", "label": "session_6_pairwise/q (jev-oracle)"}, {"id": "jev_0382_03", "polarity": "ACCEPT", "label": "session_6_pairwise/q (jev-oracle)"}, {"id": "jev_0382_04", "polarity": "ACCEPT", "label": "session_6_pairwise/q (jev-oracle)"}, {"id": "jev_0481_00", "polarity": "ACCEPT", "label": "session_8_adversaria (jev-oracle)"}, {"id": "jev_0481_01", "polarity": "REFUSE", "label": "session_8_adversaria (jev-oracle)"}, {"id": "jev_0481_02", "polarity": "REFUSE", "label": "session_8_adversaria (jev-oracle)"}, {"id": "jev_0481_03", "polarity": "ACCEPT", "label": "session_8_adversaria (jev-oracle)"}, {"id": "jev_0481_04", "polarity": "REFUSE", "label": "session_8_adversaria (jev-oracle)"}], "links": [{"source": "jev_0000_00", "target": "jev_0000_01"}, {"source": "jev_0000_01", "target": "jev_0000_02"}, {"source": "jev_0000_02", "target": "jev_0000_03"}, {"source": "jev_0000_03", "target": "jev_0000_04"}, {"source": "jev_0000_04", "target": "jev_0001_00"}, {"source": "jev_0001_00", "target": "jev_0001_01"}, {"source": "jev_0001_01", "target": "jev_0001_02"}, {"source": "jev_0001_02", "target": "jev_0001_03"}, {"source": "jev_0001_03", "target": "jev_0001_04"}, {"source": "jev_0001_04", "target": "jev_0002_00"}, {"source": "jev_0002_00", "target": "jev_0002_01"}, {"source": "jev_0002_01", "target": "jev_0002_02"}, {"source": "jev_0002_02", "target": "jev_0002_03"}, {"source": "jev_0002_03", "target": "jev_0002_04"}, {"source": "jev_0002_04", "target": "jev_0068_00"}, {"source": "jev_0068_00", "target": "jev_0068_01"}, {"source": "jev_0068_01", "target": "jev_0068_02"}, {"source": "jev_0068_02", "target": "jev_0068_03"}, {"source": "jev_0068_03", "target": "jev_0068_04"}, {"source": "jev_0068_04", "target": "jev_0169_00"}, {"source": "jev_0169_00", "target": "jev_0169_01"}, {"source": "jev_0169_01", "target": "jev_0169_02"}, {"source": "jev_0169_02", "target": "jev_0169_03"}, {"source": "jev_0169_03", "target": "jev_0169_04"}, {"source": "jev_0169_04", "target": "jev_0284_00"}, {"source": "jev_0284_00", "target": "jev_0284_01"}, {"source": "jev_0284_01", "target": "jev_0284_02"}, {"source": "jev_0284_02", "target": "jev_0284_03"}, {"source": "jev_0284_03", "target": "jev_0284_04"}, {"source": "jev_0284_04", "target": "jev_0382_00"}, {"source": "jev_0382_00", "target": "jev_0382_01"}, {"source": "jev_0382_01", "target": "jev_0382_02"}, {"source": "jev_0382_02", "target": "jev_0382_03"}, {"source": "jev_0382_03", "target": "jev_0382_04"}, {"source": "jev_0382_04", "target": "jev_0481_00"}, {"source": "jev_0481_00", "target": "jev_0481_01"}, {"source": "jev_0481_01", "target": "jev_0481_02"}, {"source": "jev_0481_02", "target": "jev_0481_03"}, {"source": "jev_0481_03", "target": "jev_0481_04"}]};
+const container = document.getElementById('graph');
+const width = container.clientWidth;
+const height = container.clientHeight;
+
+const svg = d3.select('#graph').append('svg')
+  .attr('viewBox', [0, 0, width, height]);
+
+const colorMap = {
+  ACCEPT: '#4ade80', DRIFT: '#fbbf24', REFUSE: '#f87171'
+};
+
+const link = svg.append('g')
+  .attr('stroke', '#3a4554')
+  .attr('stroke-opacity', 0.5)
+  .selectAll('line')
+  .data(data.links)
+  .join('line')
+  .attr('stroke-width', 1);
+
+const node = svg.append('g')
+  .selectAll('circle')
+  .data(data.nodes)
+  .join('circle')
+  .attr('r', 5)
+  .attr('fill', d => colorMap[d.polarity] || '#818cf8')
+  .attr('stroke', '#1f2733')
+  .attr('stroke-width', 1.5)
+  .call(d3.drag()
+    .on('start', (event, d) => {
+      if (!event.active) simulation.alphaTarget(0.3).restart();
+      d.fx = d.x; d.fy = d.y;
+    })
+    .on('drag', (event, d) => {
+      d.fx = event.x; d.fy = event.y;
+    })
+    .on('end', (event, d) => {
+      if (!event.active) simulation.alphaTarget(0);
+      d.fx = null; d.fy = null;
+    }));
+
+node.append('title').text(d => d.label);
+
+const simulation = d3.forceSimulation(data.nodes)
+  .force('link', d3.forceLink(data.links).id(d => d.id).distance(40).strength(0.7))
+  .force('charge', d3.forceManyBody().strength(-80))
+  .force('center', d3.forceCenter(width / 2, height / 2))
+  .on('tick', () => {
+    link
+      .attr('x1', d => d.source.x).attr('y1', d => d.source.y)
+      .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+    node.attr('cx', d => d.x).attr('cy', d => d.y);
+  });
+</script>
+</body>
+</html>
