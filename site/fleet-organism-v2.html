@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Quilt Organism — fleet v2 (10 walkers × 7 substrates)</title>
+<style>
+  :root {
+    --bg: #0a0e14;
+    --panel: #131820;
+    --border: #1f2733;
+    --text: #c5cdd9;
+    --muted: #6c7a8c;
+    --accept: #4ade80;
+    --drift: #fbbf24;
+    --refuse: #f87171;
+    --accent: #818cf8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0; padding: 24px; line-height: 1.5;
+  }
+  .container { max-width: 1200px; margin: 0 auto; }
+  header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 24px;
+  }
+  h1 { margin: 0; font-size: 28px; font-weight: 500; color: var(--accent); }
+  .chain-head { font-family: monospace; font-size: 13px; color: var(--muted); }
+  .panel {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px; margin-bottom: 20px;
+  }
+  .panel h2 { margin: 0 0 16px 0; font-size: 14px; font-weight: 500;
+              color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .stat { text-align: center; }
+  .stat-value { font-size: 32px; font-weight: 600; }
+  .stat-label { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+  .bar { display: flex; align-items: center; margin: 6px 0; font-size: 13px; }
+  .bar-label { width: 130px; font-family: monospace; }
+  .bar-track { flex: 1; height: 18px; background: var(--bg); border-radius: 2px;
+                overflow: hidden; position: relative; }
+  .bar-fill { height: 100%; background: var(--accent); transition: width 0.3s; }
+  .bar-fill.accept { background: var(--accept); }
+  .bar-fill.drift { background: var(--drift); }
+  .bar-fill.refuse { background: var(--refuse); }
+  .bar-value { width: 50px; text-align: right; font-family: monospace; color: var(--muted); }
+  .graph { height: 480px; background: var(--bg); border-radius: 4px; position: relative; }
+  .graph svg { width: 100%; height: 100%; }
+  .legend { display: flex; gap: 16px; margin-top: 12px; font-size: 12px;
+            color: var(--muted); justify-content: center; }
+  .legend-dot { display: inline-block; width: 10px; height: 10px;
+                 border-radius: 50%; vertical-align: middle; margin-right: 4px; }
+  .intact { color: var(--accept); }
+  .broken { color: var(--refuse); }
+  footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border);
+            color: var(--muted); font-size: 12px; text-align: center; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>🌱 The Quilt Organism — fleet v2 (10 walkers × 7 substrates)</h1>
+    <div class="chain-head">chain head: jev_2...</div>
+  </header>
+
+  <div class="panel">
+    <h2>Overview</h2>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-value">17</div>
+        <div class="stat-label">receipts</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">17</div>
+        <div class="stat-label">cells</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">5</div>
+        <div class="stat-label">substrates</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value intact">intact</div>
+        <div class="stat-label">chain</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Polarity</h2>
+    <div class="bar"><div class="bar-label">ACCEPT</div><div class="bar-track"><div class="bar-fill accept" style="width: 100.0%"></div></div><div class="bar-value">15</div></div>
+<div class="bar"><div class="bar-label">DRIFT</div><div class="bar-track"><div class="bar-fill drift" style="width: 13.3%"></div></div><div class="bar-value">2</div></div>
+<div class="bar"><div class="bar-label">REFUSE</div><div class="bar-track"><div class="bar-fill refuse" style="width: 0.0%"></div></div><div class="bar-value">0</div></div>
+  </div>
+
+  <div class="panel">
+    <h2>Substrates</h2>
+    <div class="bar"><div class="bar-label">cuopt-routing</div><div class="bar-track"><div class="bar-fill" style="width: 12.5%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">cuopt-lp</div><div class="bar-track"><div class="bar-fill" style="width: 12.5%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">quilt-brewer</div><div class="bar-track"><div class="bar-fill" style="width: 50.0%"></div></div><div class="bar-value">4</div></div>
+<div class="bar"><div class="bar-label">quilt-schema-registry</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">8</div></div>
+<div class="bar"><div class="bar-label">jev-oracle</div><div class="bar-track"><div class="bar-fill" style="width: 37.5%"></div></div><div class="bar-value">3</div></div>
+  </div>
+
+  <div class="panel">
+    <h2>Top Cells</h2>
+    <div class="bar"><div class="bar-label">warehouse-delivery</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">production-mix</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">quilt-perception</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">quilt-fable</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">quilt-orchestrator</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">quilt-linker</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">VibeReceipt</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">CUReceipt</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">OptimizationReceipt</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">OrganismReceipt</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+  </div>
+
+  <div class="panel">
+    <h2>Witness Chain</h2>
+    <div class="graph" id="graph"></div>
+    <div class="legend">
+      <span><span class="legend-dot" style="background: var(--accept)"></span>ACCEPT</span>
+      <span><span class="legend-dot" style="background: var(--drift)"></span>DRIFT</span>
+      <span><span class="legend-dot" style="background: var(--refuse)"></span>REFUSE</span>
+    </div>
+  </div>
+
+  <footer>
+    quilt-trace v0.1.0 · the organism sees itself · 2026-09-24 15:46 UTC
+  </footer>
+</div>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+const data = {"nodes": [{"id": "opt_a", "polarity": "ACCEPT", "label": "warehouse-delivery (cuopt-routin)"}, {"id": "opt_b", "polarity": "ACCEPT", "label": "production-mix (cuopt-lp)"}, {"id": "brew_quilt-perception", "polarity": "ACCEPT", "label": "quilt-perception (quilt-brewer)"}, {"id": "brew_quilt-fable", "polarity": "ACCEPT", "label": "quilt-fable (quilt-brewer)"}, {"id": "brew_quilt-orchestrator", "polarity": "ACCEPT", "label": "quilt-orchestrator (quilt-brewer)"}, {"id": "brew_quilt-linker", "polarity": "ACCEPT", "label": "quilt-linker (quilt-brewer)"}, {"id": "schema_VibeReceipt", "polarity": "ACCEPT", "label": "VibeReceipt (quilt-schema)"}, {"id": "schema_CUReceipt", "polarity": "ACCEPT", "label": "CUReceipt (quilt-schema)"}, {"id": "schema_OptimizationReceipt", "polarity": "ACCEPT", "label": "OptimizationReceipt (quilt-schema)"}, {"id": "schema_OrganismReceipt", "polarity": "ACCEPT", "label": "OrganismReceipt (quilt-schema)"}, {"id": "schema_VectorizeReceiver", "polarity": "ACCEPT", "label": "VectorizeReceiver (quilt-schema)"}, {"id": "schema_CanonScoreReceiver", "polarity": "ACCEPT", "label": "CanonScoreReceiver (quilt-schema)"}, {"id": "schema_TraceReceipt", "polarity": "ACCEPT", "label": "TraceReceipt (quilt-schema)"}, {"id": "schema_JEVReceipt", "polarity": "ACCEPT", "label": "JEVReceipt (quilt-schema)"}, {"id": "jev_0", "polarity": "DRIFT", "label": "sess_0 (jev-oracle)"}, {"id": "jev_1", "polarity": "ACCEPT", "label": "sess_1 (jev-oracle)"}, {"id": "jev_2", "polarity": "DRIFT", "label": "sess_2 (jev-oracle)"}], "links": [{"source": "opt_a", "target": "opt_b"}, {"source": "opt_b", "target": "brew_quilt-perception"}, {"source": "brew_quilt-perception", "target": "brew_quilt-fable"}, {"source": "brew_quilt-fable", "target": "brew_quilt-orchestrator"}, {"source": "brew_quilt-orchestrator", "target": "brew_quilt-linker"}, {"source": "brew_quilt-linker", "target": "schema_VibeReceipt"}, {"source": "schema_VibeReceipt", "target": "schema_CUReceipt"}, {"source": "schema_CUReceipt", "target": "schema_OptimizationReceipt"}, {"source": "schema_OptimizationReceipt", "target": "schema_OrganismReceipt"}, {"source": "schema_OrganismReceipt", "target": "schema_VectorizeReceiver"}, {"source": "schema_VectorizeReceiver", "target": "schema_CanonScoreReceiver"}, {"source": "schema_CanonScoreReceiver", "target": "schema_TraceReceipt"}, {"source": "schema_TraceReceipt", "target": "schema_JEVReceipt"}, {"source": "schema_JEVReceipt", "target": "jev_0"}, {"source": "jev_0", "target": "jev_1"}, {"source": "jev_1", "target": "jev_2"}]};
+const container = document.getElementById('graph');
+const width = container.clientWidth;
+const height = container.clientHeight;
+
+const svg = d3.select('#graph').append('svg')
+  .attr('viewBox', [0, 0, width, height]);
+
+const colorMap = {
+  ACCEPT: '#4ade80', DRIFT: '#fbbf24', REFUSE: '#f87171'
+};
+
+const link = svg.append('g')
+  .attr('stroke', '#3a4554')
+  .attr('stroke-opacity', 0.5)
+  .selectAll('line')
+  .data(data.links)
+  .join('line')
+  .attr('stroke-width', 1);
+
+const node = svg.append('g')
+  .selectAll('circle')
+  .data(data.nodes)
+  .join('circle')
+  .attr('r', 5)
+  .attr('fill', d => colorMap[d.polarity] || '#818cf8')
+  .attr('stroke', '#1f2733')
+  .attr('stroke-width', 1.5)
+  .call(d3.drag()
+    .on('start', (event, d) => {
+      if (!event.active) simulation.alphaTarget(0.3).restart();
+      d.fx = d.x; d.fy = d.y;
+    })
+    .on('drag', (event, d) => {
+      d.fx = event.x; d.fy = event.y;
+    })
+    .on('end', (event, d) => {
+      if (!event.active) simulation.alphaTarget(0);
+      d.fx = null; d.fy = null;
+    }));
+
+node.append('title').text(d => d.label);
+
+const simulation = d3.forceSimulation(data.nodes)
+  .force('link', d3.forceLink(data.links).id(d => d.id).distance(40).strength(0.7))
+  .force('charge', d3.forceManyBody().strength(-80))
+  .force('center', d3.forceCenter(width / 2, height / 2))
+  .on('tick', () => {
+    link
+      .attr('x1', d => d.source.x).attr('y1', d => d.source.y)
+      .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+    node.attr('cx', d => d.x).attr('cy', d => d.y);
+  });
+</script>
+</body>
+</html>
