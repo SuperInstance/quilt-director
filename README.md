@@ -46,6 +46,25 @@ python3 spirals/01_gaps.py    # identify gaps
 python3 spirals/07_fleet_landing.py    # compose landing
 ```
 
+## Receipt ledger
+
+Every spiral is also a receipt. `tools/book_spirals.py` books one hash-chained
+row per spiral (canonical JSON + FNV-1a-64, same family recipe as
+[quilt-executor](https://github.com/SuperInstance/quilt-executor)):
+
+```bash
+python3 tools/book_spirals.py            # book new/changed spirals → ledger/director.ledger.jsonl
+python3 tools/book_spirals.py --verify   # re-derive the chain; exit 1 on tamper (cron-safe)
+python3 tests/test_ledger.py             # pins
+```
+
+- Spiral journaled → `EFFECT` row `{spiral, file_sha256, journal_sha256}`
+- Journal missing → `REFUSED` row with first-class `refusal_type`
+  (absence is hash-committed, never silent)
+- Re-running is idempotent; mutating a spiral re-books its row
+- `DIRECTOR_ROOT` env var points the tool at a different checkout
+
+
 ## Build the landing page
 
 ```bash
