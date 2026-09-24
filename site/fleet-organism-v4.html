@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Quilt Fleet — Organism v4</title>
+<style>
+  :root {
+    --bg: #0a0e14;
+    --panel: #131820;
+    --border: #1f2733;
+    --text: #c5cdd9;
+    --muted: #6c7a8c;
+    --accept: #4ade80;
+    --drift: #fbbf24;
+    --refuse: #f87171;
+    --accent: #818cf8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0; padding: 24px; line-height: 1.5;
+  }
+  .container { max-width: 1200px; margin: 0 auto; }
+  header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 24px;
+  }
+  h1 { margin: 0; font-size: 28px; font-weight: 500; color: var(--accent); }
+  .chain-head { font-family: monospace; font-size: 13px; color: var(--muted); }
+  .panel {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px; margin-bottom: 20px;
+  }
+  .panel h2 { margin: 0 0 16px 0; font-size: 14px; font-weight: 500;
+              color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .stat { text-align: center; }
+  .stat-value { font-size: 32px; font-weight: 600; }
+  .stat-label { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+  .bar { display: flex; align-items: center; margin: 6px 0; font-size: 13px; }
+  .bar-label { width: 130px; font-family: monospace; }
+  .bar-track { flex: 1; height: 18px; background: var(--bg); border-radius: 2px;
+                overflow: hidden; position: relative; }
+  .bar-fill { height: 100%; background: var(--accent); transition: width 0.3s; }
+  .bar-fill.accept { background: var(--accept); }
+  .bar-fill.drift { background: var(--drift); }
+  .bar-fill.refuse { background: var(--refuse); }
+  .bar-value { width: 50px; text-align: right; font-family: monospace; color: var(--muted); }
+  .graph { height: 480px; background: var(--bg); border-radius: 4px; position: relative; }
+  .graph svg { width: 100%; height: 100%; }
+  .legend { display: flex; gap: 16px; margin-top: 12px; font-size: 12px;
+            color: var(--muted); justify-content: center; }
+  .legend-dot { display: inline-block; width: 10px; height: 10px;
+                 border-radius: 50%; vertical-align: middle; margin-right: 4px; }
+  .intact { color: var(--accept); }
+  .broken { color: var(--refuse); }
+  footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border);
+            color: var(--muted); font-size: 12px; text-align: center; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>🌱 The Quilt Fleet — Organism v4</h1>
+    <div class="chain-head">chain head: 1ee3d0b318c10987...</div>
+  </header>
+
+  <div class="panel">
+    <h2>Overview</h2>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-value">60</div>
+        <div class="stat-label">receipts</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">60</div>
+        <div class="stat-label">cells</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">12</div>
+        <div class="stat-label">substrates</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value broken">broken (1)</div>
+        <div class="stat-label">chain</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Polarity</h2>
+    <div class="bar"><div class="bar-label">ACCEPT</div><div class="bar-track"><div class="bar-fill accept" style="width: 100.0%"></div></div><div class="bar-value">45</div></div>
+<div class="bar"><div class="bar-label">DRIFT</div><div class="bar-track"><div class="bar-fill drift" style="width: 33.3%"></div></div><div class="bar-value">15</div></div>
+<div class="bar"><div class="bar-label">REFUSE</div><div class="bar-track"><div class="bar-fill refuse" style="width: 0.0%"></div></div><div class="bar-value">0</div></div>
+  </div>
+
+  <div class="panel">
+    <h2>Substrates</h2>
+    <div class="bar"><div class="bar-label">quilt-seed</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">8</div></div>
+<div class="bar"><div class="bar-label">quilt-trace</div><div class="bar-track"><div class="bar-fill" style="width: 50.0%"></div></div><div class="bar-value">4</div></div>
+<div class="bar"><div class="bar-label">quilt-organism</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">8</div></div>
+<div class="bar"><div class="bar-label">quilt-optimization</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">8</div></div>
+<div class="bar"><div class="bar-label">quilt-schema-registry</div><div class="bar-track"><div class="bar-fill" style="width: 50.0%"></div></div><div class="bar-value">4</div></div>
+<div class="bar"><div class="bar-label">quilt-fleet-snapshot</div><div class="bar-track"><div class="bar-fill" style="width: 50.0%"></div></div><div class="bar-value">4</div></div>
+<div class="bar"><div class="bar-label">quilt-brewer</div><div class="bar-track"><div class="bar-fill" style="width: 50.0%"></div></div><div class="bar-value">4</div></div>
+<div class="bar"><div class="bar-label">quilt-perception</div><div class="bar-track"><div class="bar-fill" style="width: 50.0%"></div></div><div class="bar-value">4</div></div>
+<div class="bar"><div class="bar-label">quilt-canon-witness</div><div class="bar-track"><div class="bar-fill" style="width: 50.0%"></div></div><div class="bar-value">4</div></div>
+<div class="bar"><div class="bar-label">quilt-fable</div><div class="bar-track"><div class="bar-fill" style="width: 50.0%"></div></div><div class="bar-value">4</div></div>
+<div class="bar"><div class="bar-label">quilt-orchestrator</div><div class="bar-track"><div class="bar-fill" style="width: 50.0%"></div></div><div class="bar-value">4</div></div>
+<div class="bar"><div class="bar-label">quilt-linker</div><div class="bar-track"><div class="bar-fill" style="width: 50.0%"></div></div><div class="bar-value">4</div></div>
+  </div>
+
+  <div class="panel">
+    <h2>Top Cells</h2>
+    <div class="bar"><div class="bar-label">quilt-seed.vibe.t0</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">quilt-seed.vibe.t1</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">quilt-seed.vibe.t2</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">quilt-seed.vibe.t3</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">quilt-seed.cu_substrate.t0</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">quilt-seed.cu_substrate.t1</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">quilt-seed.cu_substrate.t2</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">quilt-seed.cu_substrate.t3</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">quilt-trace.renderer.t0</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+<div class="bar"><div class="bar-label">quilt-trace.renderer.t1</div><div class="bar-track"><div class="bar-fill" style="width: 100.0%"></div></div><div class="bar-value">1</div></div>
+  </div>
+
+  <div class="panel">
+    <h2>Witness Chain</h2>
+    <div class="graph" id="graph"></div>
+    <div class="legend">
+      <span><span class="legend-dot" style="background: var(--accept)"></span>ACCEPT</span>
+      <span><span class="legend-dot" style="background: var(--drift)"></span>DRIFT</span>
+      <span><span class="legend-dot" style="background: var(--refuse)"></span>REFUSE</span>
+    </div>
+  </div>
+
+  <footer>
+    quilt-trace v0.1.0 · the organism sees itself · 2026-09-24 16:26 UTC
+  </footer>
+</div>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+const data = {"nodes": [{"id": "8d611109274b8f4b", "polarity": "ACCEPT", "label": "quilt-seed.vibe.t0 (quilt-seed)"}, {"id": "debdb7de819cfa07", "polarity": "ACCEPT", "label": "quilt-seed.vibe.t1 (quilt-seed)"}, {"id": "b67bd2729546c225", "polarity": "DRIFT", "label": "quilt-seed.vibe.t2 (quilt-seed)"}, {"id": "5a4f51508d009f75", "polarity": "ACCEPT", "label": "quilt-seed.vibe.t3 (quilt-seed)"}, {"id": "7bbb4d3be91dce38", "polarity": "ACCEPT", "label": "quilt-seed.cu_substr (quilt-seed)"}, {"id": "d963dc0fc57488b0", "polarity": "ACCEPT", "label": "quilt-seed.cu_substr (quilt-seed)"}, {"id": "cb19aeb6a2586770", "polarity": "DRIFT", "label": "quilt-seed.cu_substr (quilt-seed)"}, {"id": "a79a9a1e97bc1462", "polarity": "ACCEPT", "label": "quilt-seed.cu_substr (quilt-seed)"}, {"id": "a3d25485f06d672e", "polarity": "ACCEPT", "label": "quilt-trace.renderer (quilt-trace)"}, {"id": "33e847c40ef34231", "polarity": "ACCEPT", "label": "quilt-trace.renderer (quilt-trace)"}, {"id": "5bd1752fbc20cd8b", "polarity": "DRIFT", "label": "quilt-trace.renderer (quilt-trace)"}, {"id": "73bdd87ec8d0b753", "polarity": "ACCEPT", "label": "quilt-trace.renderer (quilt-trace)"}, {"id": "95b6cedda61e322b", "polarity": "ACCEPT", "label": "quilt-organism.subst (quilt-organi)"}, {"id": "52bea47375a084d4", "polarity": "ACCEPT", "label": "quilt-organism.subst (quilt-organi)"}, {"id": "8fbd06ac92a9b552", "polarity": "DRIFT", "label": "quilt-organism.subst (quilt-organi)"}, {"id": "de7db6a73a82a6a2", "polarity": "ACCEPT", "label": "quilt-organism.subst (quilt-organi)"}, {"id": "597949a975a7143f", "polarity": "ACCEPT", "label": "quilt-organism.scout (quilt-organi)"}, {"id": "52c1244d19b16024", "polarity": "ACCEPT", "label": "quilt-organism.scout (quilt-organi)"}, {"id": "bb3bfba04d622ba7", "polarity": "DRIFT", "label": "quilt-organism.scout (quilt-organi)"}, {"id": "abdae2ec0d23d31a", "polarity": "ACCEPT", "label": "quilt-organism.scout (quilt-organi)"}, {"id": "c23da4125164396a", "polarity": "ACCEPT", "label": "quilt-optimization.r (quilt-optimi)"}, {"id": "31847dea680d57f6", "polarity": "ACCEPT", "label": "quilt-optimization.r (quilt-optimi)"}, {"id": "5df4751f7a62a480", "polarity": "DRIFT", "label": "quilt-optimization.r (quilt-optimi)"}, {"id": "97b69407ac88fa00", "polarity": "ACCEPT", "label": "quilt-optimization.r (quilt-optimi)"}, {"id": "0cb7b8635e87b3e9", "polarity": "ACCEPT", "label": "quilt-optimization.l (quilt-optimi)"}, {"id": "70a137a9ed9211b1", "polarity": "ACCEPT", "label": "quilt-optimization.l (quilt-optimi)"}, {"id": "e15bef5aaac34dad", "polarity": "DRIFT", "label": "quilt-optimization.l (quilt-optimi)"}, {"id": "a058956b24c94210", "polarity": "ACCEPT", "label": "quilt-optimization.l (quilt-optimi)"}, {"id": "d89d9d596db2d800", "polarity": "ACCEPT", "label": "quilt-schema-registr (quilt-schema)"}, {"id": "2d68839d74d43f10", "polarity": "ACCEPT", "label": "quilt-schema-registr (quilt-schema)"}, {"id": "dc57fae52ba26203", "polarity": "DRIFT", "label": "quilt-schema-registr (quilt-schema)"}, {"id": "1deed522a3b1d728", "polarity": "ACCEPT", "label": "quilt-schema-registr (quilt-schema)"}, {"id": "c150e90615039884", "polarity": "ACCEPT", "label": "quilt-fleet-snapshot (quilt-fleet-)"}, {"id": "941dc5799b675e18", "polarity": "ACCEPT", "label": "quilt-fleet-snapshot (quilt-fleet-)"}, {"id": "d0b68e8035d188e8", "polarity": "DRIFT", "label": "quilt-fleet-snapshot (quilt-fleet-)"}, {"id": "b69fec8d5bc72e4d", "polarity": "ACCEPT", "label": "quilt-fleet-snapshot (quilt-fleet-)"}, {"id": "a63014be8adbfa18", "polarity": "ACCEPT", "label": "quilt-brewer.brewer. (quilt-brewer)"}, {"id": "f38d3ee7818d6a0b", "polarity": "ACCEPT", "label": "quilt-brewer.brewer. (quilt-brewer)"}, {"id": "aba2e438fce24840", "polarity": "DRIFT", "label": "quilt-brewer.brewer. (quilt-brewer)"}, {"id": "a36f9f1275ac7da5", "polarity": "ACCEPT", "label": "quilt-brewer.brewer. (quilt-brewer)"}, {"id": "2cbbd4f17cdc1232", "polarity": "ACCEPT", "label": "quilt-perception.sen (quilt-percep)"}, {"id": "8470871fd6f2f5ef", "polarity": "ACCEPT", "label": "quilt-perception.sen (quilt-percep)"}, {"id": "c4d3ff4a195c0720", "polarity": "DRIFT", "label": "quilt-perception.sen (quilt-percep)"}, {"id": "72926bd528891c6d", "polarity": "ACCEPT", "label": "quilt-perception.sen (quilt-percep)"}, {"id": "498286d76785dbdf", "polarity": "ACCEPT", "label": "quilt-canon-witness. (quilt-canon-)"}, {"id": "1538e88bbdf89c4e", "polarity": "ACCEPT", "label": "quilt-canon-witness. (quilt-canon-)"}, {"id": "d4ee219a3066054a", "polarity": "DRIFT", "label": "quilt-canon-witness. (quilt-canon-)"}, {"id": "8c5b81f326f771b8", "polarity": "ACCEPT", "label": "quilt-canon-witness. (quilt-canon-)"}, {"id": "4ab1bb6fe1d23411", "polarity": "ACCEPT", "label": "quilt-fable.narrativ (quilt-fable)"}, {"id": "0a8a0c981f00db48", "polarity": "ACCEPT", "label": "quilt-fable.narrativ (quilt-fable)"}, {"id": "86996ad58a644365", "polarity": "DRIFT", "label": "quilt-fable.narrativ (quilt-fable)"}, {"id": "6d3586e2f5175b9e", "polarity": "ACCEPT", "label": "quilt-fable.narrativ (quilt-fable)"}, {"id": "74d52bf37a079c72", "polarity": "ACCEPT", "label": "quilt-orchestrator.d (quilt-orches)"}, {"id": "ab56cb592df76e89", "polarity": "ACCEPT", "label": "quilt-orchestrator.d (quilt-orches)"}, {"id": "c0f12c0ad8d74f55", "polarity": "DRIFT", "label": "quilt-orchestrator.d (quilt-orches)"}, {"id": "3c21f02c34e02a57", "polarity": "ACCEPT", "label": "quilt-orchestrator.d (quilt-orches)"}, {"id": "cfb548c18b274181", "polarity": "ACCEPT", "label": "quilt-linker.graph.t (quilt-linker)"}, {"id": "cf4c7c00bc5d03db", "polarity": "ACCEPT", "label": "quilt-linker.graph.t (quilt-linker)"}, {"id": "5d370745d011828b", "polarity": "DRIFT", "label": "quilt-linker.graph.t (quilt-linker)"}, {"id": "1ee3d0b318c10987", "polarity": "ACCEPT", "label": "quilt-linker.graph.t (quilt-linker)"}], "links": [{"source": "0x0000000000000000", "target": "8d611109274b8f4b"}, {"source": "8d611109274b8f4b", "target": "debdb7de819cfa07"}, {"source": "debdb7de819cfa07", "target": "b67bd2729546c225"}, {"source": "b67bd2729546c225", "target": "5a4f51508d009f75"}, {"source": "5a4f51508d009f75", "target": "7bbb4d3be91dce38"}, {"source": "7bbb4d3be91dce38", "target": "d963dc0fc57488b0"}, {"source": "d963dc0fc57488b0", "target": "cb19aeb6a2586770"}, {"source": "cb19aeb6a2586770", "target": "a79a9a1e97bc1462"}, {"source": "a79a9a1e97bc1462", "target": "a3d25485f06d672e"}, {"source": "a3d25485f06d672e", "target": "33e847c40ef34231"}, {"source": "33e847c40ef34231", "target": "5bd1752fbc20cd8b"}, {"source": "5bd1752fbc20cd8b", "target": "73bdd87ec8d0b753"}, {"source": "73bdd87ec8d0b753", "target": "95b6cedda61e322b"}, {"source": "95b6cedda61e322b", "target": "52bea47375a084d4"}, {"source": "52bea47375a084d4", "target": "8fbd06ac92a9b552"}, {"source": "8fbd06ac92a9b552", "target": "de7db6a73a82a6a2"}, {"source": "de7db6a73a82a6a2", "target": "597949a975a7143f"}, {"source": "597949a975a7143f", "target": "52c1244d19b16024"}, {"source": "52c1244d19b16024", "target": "bb3bfba04d622ba7"}, {"source": "bb3bfba04d622ba7", "target": "abdae2ec0d23d31a"}, {"source": "abdae2ec0d23d31a", "target": "c23da4125164396a"}, {"source": "c23da4125164396a", "target": "31847dea680d57f6"}, {"source": "31847dea680d57f6", "target": "5df4751f7a62a480"}, {"source": "5df4751f7a62a480", "target": "97b69407ac88fa00"}, {"source": "97b69407ac88fa00", "target": "0cb7b8635e87b3e9"}, {"source": "0cb7b8635e87b3e9", "target": "70a137a9ed9211b1"}, {"source": "70a137a9ed9211b1", "target": "e15bef5aaac34dad"}, {"source": "e15bef5aaac34dad", "target": "a058956b24c94210"}, {"source": "a058956b24c94210", "target": "d89d9d596db2d800"}, {"source": "d89d9d596db2d800", "target": "2d68839d74d43f10"}, {"source": "2d68839d74d43f10", "target": "dc57fae52ba26203"}, {"source": "dc57fae52ba26203", "target": "1deed522a3b1d728"}, {"source": "1deed522a3b1d728", "target": "c150e90615039884"}, {"source": "c150e90615039884", "target": "941dc5799b675e18"}, {"source": "941dc5799b675e18", "target": "d0b68e8035d188e8"}, {"source": "d0b68e8035d188e8", "target": "b69fec8d5bc72e4d"}, {"source": "b69fec8d5bc72e4d", "target": "a63014be8adbfa18"}, {"source": "a63014be8adbfa18", "target": "f38d3ee7818d6a0b"}, {"source": "f38d3ee7818d6a0b", "target": "aba2e438fce24840"}, {"source": "aba2e438fce24840", "target": "a36f9f1275ac7da5"}, {"source": "a36f9f1275ac7da5", "target": "2cbbd4f17cdc1232"}, {"source": "2cbbd4f17cdc1232", "target": "8470871fd6f2f5ef"}, {"source": "8470871fd6f2f5ef", "target": "c4d3ff4a195c0720"}, {"source": "c4d3ff4a195c0720", "target": "72926bd528891c6d"}, {"source": "72926bd528891c6d", "target": "498286d76785dbdf"}, {"source": "498286d76785dbdf", "target": "1538e88bbdf89c4e"}, {"source": "1538e88bbdf89c4e", "target": "d4ee219a3066054a"}, {"source": "d4ee219a3066054a", "target": "8c5b81f326f771b8"}, {"source": "8c5b81f326f771b8", "target": "4ab1bb6fe1d23411"}, {"source": "4ab1bb6fe1d23411", "target": "0a8a0c981f00db48"}, {"source": "0a8a0c981f00db48", "target": "86996ad58a644365"}, {"source": "86996ad58a644365", "target": "6d3586e2f5175b9e"}, {"source": "6d3586e2f5175b9e", "target": "74d52bf37a079c72"}, {"source": "74d52bf37a079c72", "target": "ab56cb592df76e89"}, {"source": "ab56cb592df76e89", "target": "c0f12c0ad8d74f55"}, {"source": "c0f12c0ad8d74f55", "target": "3c21f02c34e02a57"}, {"source": "3c21f02c34e02a57", "target": "cfb548c18b274181"}, {"source": "cfb548c18b274181", "target": "cf4c7c00bc5d03db"}, {"source": "cf4c7c00bc5d03db", "target": "5d370745d011828b"}, {"source": "5d370745d011828b", "target": "1ee3d0b318c10987"}]};
+const container = document.getElementById('graph');
+const width = container.clientWidth;
+const height = container.clientHeight;
+
+const svg = d3.select('#graph').append('svg')
+  .attr('viewBox', [0, 0, width, height]);
+
+const colorMap = {
+  ACCEPT: '#4ade80', DRIFT: '#fbbf24', REFUSE: '#f87171'
+};
+
+const link = svg.append('g')
+  .attr('stroke', '#3a4554')
+  .attr('stroke-opacity', 0.5)
+  .selectAll('line')
+  .data(data.links)
+  .join('line')
+  .attr('stroke-width', 1);
+
+const node = svg.append('g')
+  .selectAll('circle')
+  .data(data.nodes)
+  .join('circle')
+  .attr('r', 5)
+  .attr('fill', d => colorMap[d.polarity] || '#818cf8')
+  .attr('stroke', '#1f2733')
+  .attr('stroke-width', 1.5)
+  .call(d3.drag()
+    .on('start', (event, d) => {
+      if (!event.active) simulation.alphaTarget(0.3).restart();
+      d.fx = d.x; d.fy = d.y;
+    })
+    .on('drag', (event, d) => {
+      d.fx = event.x; d.fy = event.y;
+    })
+    .on('end', (event, d) => {
+      if (!event.active) simulation.alphaTarget(0);
+      d.fx = null; d.fy = null;
+    }));
+
+node.append('title').text(d => d.label);
+
+const simulation = d3.forceSimulation(data.nodes)
+  .force('link', d3.forceLink(data.links).id(d => d.id).distance(40).strength(0.7))
+  .force('charge', d3.forceManyBody().strength(-80))
+  .force('center', d3.forceCenter(width / 2, height / 2))
+  .on('tick', () => {
+    link
+      .attr('x1', d => d.source.x).attr('y1', d => d.source.y)
+      .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+    node.attr('cx', d => d.x).attr('cy', d => d.y);
+  });
+</script>
+</body>
+</html>
